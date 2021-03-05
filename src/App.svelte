@@ -5,9 +5,4 @@
 </script>
 
 <Header />
-<Router 
-  routes={routes}
-/>
-
-<style lang="scss">
-</style>
+<Router routes={routes} />
