@@ -84,6 +84,7 @@
         color: $color--white-60;
         border-radius: 4px;
         border: none;
+
         &::placeholder {
           color: $color--white-30;
         }

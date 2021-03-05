@@ -4,8 +4,8 @@
 </script>
 
 <div class="container">
-    <Headline />
-    <Search />
+    <Headline/>
+    <Search/>
 </div>
 
 <style lang="scss">
