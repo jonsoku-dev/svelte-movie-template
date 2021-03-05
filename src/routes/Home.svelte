@@ -1,6 +1,13 @@
 <script lang="ts">
     import Headline from '~/components/Headline.svelte'
+    import Search from '~/components/Search.svelte'
 </script>
 
-<Headline />
-<h1>Home</h1>
+<div class="container">
+    <Headline />
+    <Search />
+</div>
+
+<style lang="scss">
+
+</style>
