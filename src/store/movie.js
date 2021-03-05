@@ -2,7 +2,10 @@ import axios from 'axios'
 import { get, writable } from 'svelte/store'
 import _unionBy from 'lodash/unionBy'
 
+const OBDB_API_KEY = '9b09ed9e'
+
 export const movies = writable([])
+export const theMovie = writable({})
 export const loading = writable(false)
 
 export async function searchMovies(payload) {
@@ -10,8 +13,6 @@ export async function searchMovies(payload) {
     loading.set(true)
 
     const { title, type, year, number } = payload
-
-    const OBDB_API_KEY = '9b09ed9e'
 
     const res = await axios.get(
         `http://www.omdbapi.com/?apikey=${OBDB_API_KEY}&s=${title}&type=${type}&y=${year}`
@@ -35,5 +36,17 @@ export async function searchMovies(payload) {
         }
     }
 
+    loading.set(false)
+}
+
+export async function searchMovieWithId(id) {
+    if (get(loading)) return
+    loading.set(true)
+
+    const res = await axios.get(
+        `http://www.omdbapi.com/?apikey=${OBDB_API_KEY}&i=${id}&plot=full`
+    )
+
+    theMovie.set(res.data)
     loading.set(false)
 }
