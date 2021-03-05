@@ -8,7 +8,7 @@
   a {
     display: block;
     font-family: 'Oswald', 'sans-serif';
-    font-size: 30px;
+    font-size: 24px;
     color: $color--white-50;
     text-decoration: none;
 
