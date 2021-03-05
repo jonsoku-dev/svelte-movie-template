@@ -3,8 +3,12 @@ import { get, writable } from 'svelte/store'
 import _unionBy from 'lodash/unionBy'
 
 export const movies = writable([])
+export const loading = writable(false)
 
 export async function searchMovies(payload) {
+    if (get(loading)) return
+    loading.set(true)
+
     const { title, type, year, number } = payload
 
     const OBDB_API_KEY = '9b09ed9e'
@@ -31,5 +35,5 @@ export async function searchMovies(payload) {
         }
     }
 
-    console.log(get(movies))
+    loading.set(false)
 }
