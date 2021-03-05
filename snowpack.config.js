@@ -14,12 +14,5 @@ module.exports = {
     alias: {
         '~': './src',
         '@': './src',
-    },
-    install: [],
-    installOptions: {},
-    devOptions: {
-        // open: 'none'
-    },
-    buildOptions: {},
-    proxy: {},
+    }
 }

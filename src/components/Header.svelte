@@ -1,44 +1,50 @@
-<script lang="ts">
-    import {link} from 'svelte-spa-router'
+<script lang='ts'>
+    import { link } from 'svelte-spa-router'
     import active from 'svelte-spa-router/active'
     import Logo from '~/components/Logo.svelte'
 
-    const menus = [
+    type Menu = {
+        href: string
+        name: string
+        path: string
+    }
+
+    const menus: Menu[] = [
         {
             href: '/',
             name: 'Search',
-            path: '/'
+            path: '/',
         },
         {
             href: '/movie/tt4520988',
             name: 'Movie',
-            path: '/movie/*' // wildcard
+            path: '/movie/*', // wildcard
         },
         {
             href: '/about',
             name: 'About',
-            path: '/about'
-        }
+            path: '/about',
+        },
     ]
 </script>
 
 <header>
-    <Logo/>
+    <Logo />
     <nav>
         <ul>
-            {#each menus as {href, name, path} (name)}
+            {#each menus as { href, name, path } (name)}
                 <li>
                     <a use:link use:active={path} href={href}>{name}</a>
                 </li>
             {/each}
         </ul>
     </nav>
-    <div class="user">
-        <img src="/assets/svelte.png" alt="User">
+    <div class='user'>
+        <img src='/assets/svelte.png' alt='User'>
     </div>
 </header>
 
-<style lang="scss">
+<style lang='scss'>
   header {
     padding: 20px 40px;
     background-color: $color--black-90;
