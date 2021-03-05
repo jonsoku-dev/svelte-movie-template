@@ -1,18 +1,19 @@
 <script>
-    import { link } from 'svelte-spa-router'
+    import {link} from 'svelte-spa-router'
 </script>
 
 <a use:link href="/"><span>OBDbAPI</span>.COM</a>
 
 <style lang="scss">
-    a {
-        display:block;
-        font-family: 'Oswald', 'sans-serif';
-        font-size: 30px;
-        color: rgba(#fff, .5);
-        text-decoration: none;
-        span {
-            color: #FDC000;
-        }
+  a {
+    display: block;
+    font-family: 'Oswald', 'sans-serif';
+    font-size: 30px;
+    color: $color--white-50;
+    text-decoration: none;
+
+    span {
+      color: $color--primary;
     }
+  }
 </style>

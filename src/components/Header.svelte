@@ -23,7 +23,7 @@
 </script>
 
 <header>
-    <Logo />
+    <Logo/>
     <nav>
         <ul>
             {#each menus as {href, name, path} (name)}
@@ -36,7 +36,7 @@
 </header>
 
 <style lang="scss">
-    header :global(a.active) {
-        color: red;
-    }
+  header :global(a.active) {
+    color: red;
+  }
 </style>
