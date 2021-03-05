@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { get, writable } from 'svelte/store'
+import _unionBy from 'lodash/unionBy'
 
 export const movies = writable([])
 
@@ -25,8 +26,7 @@ export async function searchMovies(payload) {
             )
             const { Search } = res.data
             movies.update(($movies) => {
-                $movies.push(...Search)
-                return $movies
+                return _unionBy($movies, Search, 'imdbID') // 중복 제거
             })
         }
     }
