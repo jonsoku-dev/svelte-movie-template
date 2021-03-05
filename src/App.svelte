@@ -1,13 +1,12 @@
 <script lang="ts">
-	import Hello from '~/components/Hello.svelte'
-
-  console.log('Hello App!')
+  import Router from 'svelte-spa-router'
+  import routes from '~/routes'
 </script>
 
-<h1>Hello Svelte & Snowpack!</h1>
-<Hello />
+<h1>Header!</h1>
+<Router 
+  routes={routes}
+/>
 
 <style lang="scss">
-  // If you want to import the `scss/main.scss` file globally,
-  // you must add `<style lang="scss">` even if the style content is empty.
 </style>
