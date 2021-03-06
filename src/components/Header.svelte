@@ -6,7 +6,7 @@
     type Menu = {
         href: string
         name: string
-        path: string
+        path:  any
     }
 
     const menus: Menu[] = [
@@ -23,7 +23,7 @@
         {
             href: '/about',
             name: 'About',
-            path: '/about',
+            path: /^\/about/,
         },
     ]
 </script>
