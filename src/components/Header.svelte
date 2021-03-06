@@ -47,7 +47,7 @@
     </div>
 </header>
 
-<style lang='scss'>
+<style lang="scss">
   header {
     padding: 20px 40px;
     background-color: $color--black-90;
@@ -56,20 +56,15 @@
     z-index: 9;
     display: flex;
     align-items: flex-end;
-
     nav {
       margin-left: 40px;
-
       ul {
         display: flex;
-
         li {
           margin-left: 10px;
-
           &:first-child {
             margin-left: 0;
           }
-
           a {
             font-size: 14px;
             font-weight: 700;
@@ -79,13 +74,7 @@
         }
       }
     }
-
     .user {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      right: 40px;
-      margin: auto;
       width: 40px;
       height: 40px;
       padding: 6px;
@@ -93,24 +82,21 @@
       border-radius: 50%;
       background-color: $color--area;
       cursor: pointer;
-      transition: .4s;
-
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 40px;
+      margin: auto;
+      transition: 0.4s;
       &:hover {
         background-color: lighten($color--area, 20%);
       }
-
       img {
         width: 100%;
       }
     }
   }
-
   header :global(a.active) {
     color: $color--primary !important;
   }
-
-  // 현재 파일 외의 css 를 다룰때
-  //:global(body) {
-  //  height: 3000px;
-  //}
 </style>

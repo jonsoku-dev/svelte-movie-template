@@ -68,23 +68,33 @@
     display: grid;
     grid-template-columns: 1fr repeat(4, 120px);
     grid-gap: 10px;
-
+    @media #{$tablet} {
+      grid-template-columns: repeat(3, 120px) 1fr;
+      grid-template-rows: repeat(2, 50px);
+    }
+    @media #{$mobile} {
+      grid-template-columns: repeat(3, 1fr) ;
+      grid-template-rows: repeat(2, 50px);
+    }
     .text-field {
       display: inline-block;
       height: 50px;
-
+      position: relative;
+      @media #{$tablet} {
+        grid-column: 1 / -1;
+      }
       input {
         width: 100%;
         height: 100%;
-        background-color: $color--area;
+        background: $color--area;
         outline: none;
+        border: none;
         padding: 0 20px;
         box-sizing: border-box;
         font-size: 14px;
         color: $color--white-60;
         border-radius: 4px;
-        border: none;
-
+        appearance: none;
         &::placeholder {
           color: $color--white-30;
         }
@@ -94,34 +104,31 @@
     .select {
       height: 50px;
       position: relative;
-
-      &::after {
-        content: "";
-        width: 0;
-        height: 0;
-        border-top: 5px solid #555;
-        border-left: 5px solid transparent;
-        border-right: 5px solid transparent;
-        display: block;
-        position: absolute;
-        top: 50%;
-        right: 15px;
-        margin-top: -1px;
-      }
-
       select {
         width: 100%;
         height: 100%;
         outline: none;
         border: none;
+        padding: 0 32px 0 20px;
+        box-sizing: border-box;
         font-size: 14px;
         color: $color--white-60;
         border-radius: 4px;
-        background-color: $color--area;
+        background: $color--area;
         cursor: pointer;
-        appearance: none; // 화살표없애기
-        padding: 0 32px 0 20px;
-        box-sizing: border-box;
+        appearance: none;
+      }
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: 15px;
+        width: 0;
+        height: 0;
+        margin-top: -1px;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 5px solid #555;
       }
     }
 
@@ -129,15 +136,17 @@
       height: 50px;
       padding: 0 20px;
       border: none;
-      outline: none;
       border-radius: 4px;
       cursor: pointer;
       font-size: 14px;
+      background-color: $color--primary;
       font-weight: 700;
       color: $color--black;
-      background-color: $color--primary;
-      transition: .4s;
-
+      outline: none;
+      transition: 0.4s;
+      @media #{$mobile} {
+        grid-column: 1 / -1;
+      }
       &:hover {
         background-color: darken($color--primary, 10%);
       }
