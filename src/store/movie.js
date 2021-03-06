@@ -9,9 +9,16 @@ export const theMovie = writable({})
 export const loading = writable(false)
 export const message = writable('Search for the movie title!')
 
+export function initMovies() {
+    movies.set([])
+    message.set('Search for the movie title!')
+    loading.set(false)
+}
+
 export async function searchMovies(payload) {
     if (get(loading)) return
     loading.set(true)
+    message.set('')
 
     const { title, type, year, number } = payload
 
